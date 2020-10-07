@@ -37,39 +37,61 @@ playerScore.innerHTML = "Score: 0";
 scoreContainer.appendChild(playerScore);
 
 // Game object
+
+
+// const cardButton = document.createElement('button');
+// cardButton.setAttribute('class', 'cardButton');
+// scoreContainer.appendChild(cardButton);
+
+const backCard = document.createElement('div');
+backCard.setAttribute('class', 'backCard');
+document.body.appendChild(backCard);
+
+const backCardImg = document.createElement('img');
+backCardImg.setAttribute('src', './images/card10.png');
+backCard.appendChild(backCardImg);
+
 const handleClick = () => {
     console.log('hello world');
+    // const cardSelect = document.querySelector('img').getAttribute('src');
+    const cardSelect = document.getElementById('container');
+    cardSelect.classList.toggle('backCard');
+    // cardSelect.toggle('src', './images/card10.png');
 }
 
 let game = {
     playerScore: 0,
     deck: [],
     
-
-
 // Get Cards Method
     // Create a function to analyze the card images.
     getCards: function() {
         // let tempDeck = [];
-        for(let i=2; i<11; i++){
+        for(let i=2; i<10; i++){
             const cardImg = document.createElement('img');
             cardImg.setAttribute('src', `./images/card${i}.png`);
-            cardImg.setAttribute('class', `card-${i}`);
+            cardImg.value = i;
             this.deck.push(cardImg);
             // tempDeck.push(cardImg);
         }
-
+        for(let j=2; j<10; j++){
+            const cardImg2 = document.createElement('img');
+            cardImg2.setAttribute('src', `./images/card${j}.png`);
+            cardImg2.value = j;
+            this.deck.push(cardImg2);
+        }
         // this.deck = tempDeck.concat(tempDeck);
-        for(let j=0; j<this.deck.length; j++){
-            this.deck[j].setAttribute('id', j);
+        // console.log('current deck', this.deck);
+        for(let k=0; k<this.deck.length; k++){
+            this.deck[k].setAttribute('id', k);
             // Setup on-click event listener here
-            this.deck[j].addEventListener('click', handleClick);
+            this.deck[k].addEventListener('click', handleClick);
         }
         // console.log(tempDeck);
         console.log(this.deck);
-    },
-    
+    },    
 
+// Shuffle Method 
     shuffle: function() {
         // for(let i=0; i<this.deck.length; i++){
         for(let i=this.deck.length-1; i>0; i--){
@@ -81,15 +103,16 @@ let game = {
         // console.log(this.deck);
     },
 
-// Deal Cards method to show card images in the grid
+// Deal Cards Method to show card images in the grid
     dealCards: function() {
         // console.log(this.deck.length);
         for(let i=0; i<this.deck.length; i++){
             container.appendChild(this.deck[i]);
         }
         // console.log(this.deck);
-    }
+    },
 
+// Select Cards Method 
 
 }
 
