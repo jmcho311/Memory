@@ -12,6 +12,6 @@ div.container {
     grid-row-gap: 10px;
 }
 
-.cardBackStyle {
+.cardBack {
     background-image: url('../images/card10.png');
 }

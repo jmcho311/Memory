@@ -43,20 +43,22 @@ scoreContainer.appendChild(playerScore);
 // cardButton.setAttribute('class', 'cardButton');
 // scoreContainer.appendChild(cardButton);
 
-const backCard = document.createElement('div');
-backCard.setAttribute('class', 'backCard');
-document.body.appendChild(backCard);
+// const backCard = document.createElement('div');
+// backCard.setAttribute('class', 'backCard');
+// document.body.appendChild(backCard);
 
-const backCardImg = document.createElement('img');
-backCardImg.setAttribute('src', './images/card10.png');
-backCard.appendChild(backCardImg);
+// const backCardImg = document.createElement('img');
+// backCardImg.setAttribute('src', './images/card10.png');
+// backCard.appendChild(backCardImg);
 
-const handleClick = () => {
+const handleClick = (event) => {
     console.log('hello world');
     // const cardSelect = document.querySelector('img').getAttribute('src');
-    const cardSelect = document.getElementById('container');
-    cardSelect.classList.toggle('backCard');
+    // const cardSelect = document.getElementById('container');
+    // cardSelect.classList.toggle('backCard');
     // cardSelect.toggle('src', './images/card10.png');
+    const value = event.target.getAttribute('value');
+    event.target.setAttribute('src', `./images/card${value}.png`);
 }
 
 let game = {
@@ -69,14 +71,16 @@ let game = {
         // let tempDeck = [];
         for(let i=2; i<10; i++){
             const cardImg = document.createElement('img');
-            cardImg.setAttribute('src', `./images/card${i}.png`);
+            cardImg.setAttribute('src', `./images/card10.png`);
+            cardImg.setAttribute('value', i);
             cardImg.value = i;
             this.deck.push(cardImg);
             // tempDeck.push(cardImg);
         }
         for(let j=2; j<10; j++){
             const cardImg2 = document.createElement('img');
-            cardImg2.setAttribute('src', `./images/card${j}.png`);
+            cardImg2.setAttribute('src', `./images/card10.png`);
+            cardImg2.setAttribute('value', j);
             cardImg2.value = j;
             this.deck.push(cardImg2);
         }
