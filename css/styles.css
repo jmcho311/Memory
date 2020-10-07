@@ -1,0 +1,13 @@
+* {
+    background-color: #D3F5F5;
+    align-content: center;
+    text-align: center;
+}
+
+div.container {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    grid-template-rows: repeat(3, 2fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
