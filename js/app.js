@@ -50,15 +50,16 @@ let game = {
 // Get Cards Method
     // Create a function to analyze the card images.
     getCards: function() {
-        let tempDeck = [];
-        for(let i=2; i<8; i++){
+        // let tempDeck = [];
+        for(let i=2; i<11; i++){
             const cardImg = document.createElement('img');
             cardImg.setAttribute('src', `./images/card${i}.png`);
             cardImg.setAttribute('class', `card-${i}`);
-            tempDeck.push(cardImg);
+            this.deck.push(cardImg);
+            // tempDeck.push(cardImg);
         }
 
-        this.deck = tempDeck.concat(tempDeck);
+        // this.deck = tempDeck.concat(tempDeck);
         for(let j=0; j<this.deck.length; j++){
             this.deck[j].setAttribute('id', j);
             // Setup on-click event listener here
