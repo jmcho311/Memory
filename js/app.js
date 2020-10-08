@@ -142,9 +142,9 @@ const handleClick = (event) => {
     let cardValue = event.target.getAttribute('value');
     event.target.setAttribute('src', `./images/card${cardValue}.png`);
     // let selectOne = (document.querySelector('.gameCard').getAttribute('value'));
-    console.log(cardValue);
+    // console.log(cardValue);
     game.playerSelection.push(cardValue);
-    console.log(game.playerSelection);
+    // console.log(game.playerSelection);
     if(game.playerSelection.length === 2){
         if(game.playerSelection[0] == game.playerSelection[1]){
             game.playerScore++;
@@ -152,8 +152,10 @@ const handleClick = (event) => {
             game.playerSelection.shift();
             game.playerSelection.shift();
             console.log(game.playerSelection);
-        // } else if(game.playerSelection[0] != game.playerSelection[1]){
-            // document.querySelector('.gameCard').setAttribute('src', `./images/card10.png`);
+        } else if(game.playerSelection[0] != game.playerSelection[1]){
+            document.getAttribute('src', `./images/card${game.playerSelection[0]}.png`).setAttribute('src', `./images/card10.png`);
+            game.playerSelection.shift();
+            game.playerSelection.shift();
         }
     }   
 }
