@@ -3,6 +3,7 @@ console.log('Sanity Check!');
 // Create Start Game Button
 let startButton = document.createElement('button');
 startButton.setAttribute('class', 'startButton');
+
 document.body.appendChild(startButton);
 const button = document.querySelector('button');
 button.addEventListener('click', function(event){
@@ -65,7 +66,7 @@ let game = {
         // this.deck = tempDeck.concat(tempDeck);
         // console.log('current deck', this.deck);
         for(let k=0; k<this.deck.length; k++){
-            this.deck[k].setAttribute('id', k);
+            // this.deck[k].setAttribute('id', k);
             // Setup on-click event listener here
             this.deck[k].addEventListener('click', handleClick);
         }
@@ -109,15 +110,17 @@ let game = {
     // backCardImg.setAttribute('src', './images/card10.png');
     // backCard.appendChild(backCardImg);
 
+
 const handleClick = (event) => {
     // console.log('hello world');
     // const cardSelect = document.querySelector('img').getAttribute('src');
     // const cardSelect = document.getElementById('container');
     // cardSelect.classList.toggle('backCard');
     // cardSelect.toggle('src', './images/card10.png');
-    const value = event.target.getAttribute('value');
+    let value = event.target.getAttribute('value');
     event.target.setAttribute('src', `./images/card${value}.png`);
-    // let selectOne = document.querySelector('.gameCard').getAttribute('value');
+    // let selectOne = (document.querySelector('.gameCard').getAttribute('value'));
+    console.log(value);
 }
 
 // Check Score Method

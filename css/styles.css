@@ -4,6 +4,20 @@
     text-align: center;
 }
 
+.header {
+    font-family: 'Lobster', cursive;
+    color: darkgoldenrod;
+    font-size: 1.5em;
+}
+
+.startButton {
+    background-image: url('../images/dealButton.png');
+    width: 100px;
+    height: 72px;
+    border: 1px solid black;
+    margin: 30px;
+}
+
 div.container {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
