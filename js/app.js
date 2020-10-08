@@ -5,13 +5,15 @@ let startButton = document.createElement('button');
 startButton.setAttribute('class', 'startButton');
 document.body.appendChild(startButton);
 const button = document.querySelector('button');
-button.addEventListener('click', function(event){
-/*    game.getCards();
+
+const newGame = () => {
+    game.getCards();
     game.shuffle();
     game.dealCards();
-    game.selectCards();     */
-});
-
+    game.selectCards();
+    button.removeEventListener('click', newGame);
+}
+button.addEventListener('click', newGame);
 
 // Create container element
 let container = document.createElement('div');
@@ -103,7 +105,7 @@ let game = {
 
     selectCards: function() {
         for(let k=0; k<this.deck.length; k++){
-            // this.deck[k].setAttribute('id', k);
+            this.deck[k].setAttribute('id', k);
             // Setup on-click event listener here
             game.deck[k].addEventListener('click', handleClick);
         }
@@ -126,10 +128,10 @@ let game = {
     // backCard.appendChild(backCardImg);
 
 
-let firstCard = document.createElement('div');
-firstCard.setAttribute('class', 'firstCard');
-firstCard.setAttribute('value', '');
-gameContainer.appendChild(firstCard);
+// let firstCard = document.createElement('div');
+// firstCard.setAttribute('class', 'firstCard');
+// firstCard.setAttribute('value', '');
+// gameContainer.appendChild(firstCard);
 
 
 const handleClick = (event) => {
@@ -143,26 +145,37 @@ const handleClick = (event) => {
     event.target.setAttribute('src', `./images/card${cardValue}.png`);
     // let selectOne = (document.querySelector('.gameCard').getAttribute('value'));
     // console.log(cardValue);
-    game.playerSelection.push(cardValue);
+    game.playerSelection.push(event.target);
     // console.log(game.playerSelection);
     if(game.playerSelection.length === 2){
-        if(game.playerSelection[0] == game.playerSelection[1]){
+        if(game.playerSelection[0].getAttribute('value') == game.playerSelection[1].getAttribute('value')){
             game.playerScore++;
-            console.log(game.playerScore);
+            // console.log(game.playerScore);
+            let newScoreInnerHTML = `Score: ${game.playerScore}`;
+            playerScore.innerHTML = newScoreInnerHTML;
             game.playerSelection.shift();
             game.playerSelection.shift();
-            console.log(game.playerSelection);
-        } else if(game.playerSelection[0] != game.playerSelection[1]){
-            document.getAttribute('src', `./images/card${game.playerSelection[0]}.png`).setAttribute('src', `./images/card10.png`);
-            game.playerSelection.shift();
-            game.playerSelection.shift();
+            // console.log(game.playerSelection);
+        /*    if(game.playerScore === 2){
+                // remove all cards from the container
+                for(let i=0; i<16; i++){
+                    let myCards = document.querySelector('.gameCard').getElementById('id', i);
+                    myCards.remove();
+                }
+                button.addEventListener('click', newGame);
+            }  */
+
+        } else if(game.playerSelection[0].getAttribute('value') != game.playerSelection[1].getAttribute('value')){
+            setTimeout(function(){
+                game.playerSelection[0].setAttribute('src', './images/card10.png');
+                game.playerSelection[1].setAttribute('src', './images/card10.png');
+                game.playerSelection.shift();
+                game.playerSelection.shift();
+            }, 750);
+            
         }
     }   
 }
-// Create Game Container
-// let gameContainer = document.createElement('div');
-// gameContainer.setAttribute('class', 'gameContainer');
-// document.body.appendChild(gameContainer);
 
 // Check Score Method
 // When player selects first card = get value and set to const
@@ -187,7 +200,7 @@ const handleClick = (event) => {
 
 
 
-game.getCards();
-game.shuffle();
-game.dealCards();
-game.selectCards();
+// game.getCards();
+// game.shuffle();
+// game.dealCards();
+// game.selectCards();
