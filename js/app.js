@@ -15,6 +15,16 @@ const newGame = () => {
 }
 button.addEventListener('click', newGame);
 
+// Create timer Container and Element
+let timerContainer = document.createElement('div');
+timerContainer.setAttribute('class', 'timerContainer');
+document.body.appendChild(timerContainer);
+let timer = document.createElement('div');
+timer.setAttribute('class', 'timer');
+timer.innerHTML = "Will you make it everywhere?";
+timerContainer.appendChild(timer);
+
+
 // Create container element
 let container = document.createElement('div');
 container.setAttribute('class', 'container');
@@ -41,7 +51,7 @@ document.body.appendChild(scoreContainer);
 // Create Player Score
 let playerScore = document.createElement('div');
 playerScore.setAttribute('class', 'playerScore');
-playerScore.innerHTML = "Score: 0";
+playerScore.innerHTML = "I made it to 0 places!";
 scoreContainer.appendChild(playerScore);
 
 // Game object
@@ -151,7 +161,7 @@ const handleClick = (event) => {
         if(game.playerSelection[0].getAttribute('value') == game.playerSelection[1].getAttribute('value')){
             game.playerScore++;
             // console.log(game.playerScore);
-            let newScoreInnerHTML = `Score: ${game.playerScore}`;
+            let newScoreInnerHTML = `I made it to ${game.playerScore} places!`;
             playerScore.innerHTML = newScoreInnerHTML;
             game.playerSelection.shift();
             game.playerSelection.shift();
