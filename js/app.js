@@ -3,13 +3,13 @@ console.log('Sanity Check!');
 // Create Start Game Button
 let startButton = document.createElement('button');
 startButton.setAttribute('class', 'startButton');
-
 document.body.appendChild(startButton);
 const button = document.querySelector('button');
 button.addEventListener('click', function(event){
-    game.getCards();
+/*    game.getCards();
     game.shuffle();
     game.dealCards();
+    game.selectCards();     */
 });
 
 
@@ -26,6 +26,11 @@ gameCard.setAttribute('src', './images/card2.png');
 // Append to Container
 container.appendChild(gameCard);*/
 
+// Create Game Container
+let gameContainer = document.createElement('div');
+gameContainer.setAttribute('class', 'gameContainer');
+document.body.appendChild(gameContainer);
+
 // Create Score Container
 let scoreContainer = document.createElement('div');
 scoreContainer.setAttribute('class', 'scoreContainer');
@@ -41,6 +46,7 @@ scoreContainer.appendChild(playerScore);
 let game = {
     playerScore: 0,
     deck: [],
+    playerSelection: [],
     
 // Get Cards Method
     // Create a function to analyze the card images.
@@ -65,13 +71,13 @@ let game = {
         }
         // this.deck = tempDeck.concat(tempDeck);
         // console.log('current deck', this.deck);
-        for(let k=0; k<this.deck.length; k++){
+/*        for(let k=0; k<this.deck.length; k++){
             // this.deck[k].setAttribute('id', k);
             // Setup on-click event listener here
             this.deck[k].addEventListener('click', handleClick);
         }
         // console.log(tempDeck);
-        console.log(this.deck);
+        console.log(this.deck);     */
     },    
 
 // Shuffle Method 
@@ -95,6 +101,15 @@ let game = {
         // console.log(this.deck);
     },
 
+    selectCards: function() {
+        for(let k=0; k<this.deck.length; k++){
+            // this.deck[k].setAttribute('id', k);
+            // Setup on-click event listener here
+            game.deck[k].addEventListener('click', handleClick);
+        }
+        
+    }
+
 }
 
 // Select Cards Method 
@@ -111,17 +126,41 @@ let game = {
     // backCard.appendChild(backCardImg);
 
 
+let firstCard = document.createElement('div');
+firstCard.setAttribute('class', 'firstCard');
+firstCard.setAttribute('value', '');
+gameContainer.appendChild(firstCard);
+
+
 const handleClick = (event) => {
     // console.log('hello world');
     // const cardSelect = document.querySelector('img').getAttribute('src');
     // const cardSelect = document.getElementById('container');
     // cardSelect.classList.toggle('backCard');
     // cardSelect.toggle('src', './images/card10.png');
-    let value = event.target.getAttribute('value');
-    event.target.setAttribute('src', `./images/card${value}.png`);
+    // let cardClicks = [];
+    let cardValue = event.target.getAttribute('value');
+    event.target.setAttribute('src', `./images/card${cardValue}.png`);
     // let selectOne = (document.querySelector('.gameCard').getAttribute('value'));
-    console.log(value);
+    console.log(cardValue);
+    game.playerSelection.push(cardValue);
+    console.log(game.playerSelection);
+    if(game.playerSelection.length === 2){
+        if(game.playerSelection[0] == game.playerSelection[1]){
+            game.playerScore++;
+            console.log(game.playerScore);
+            game.playerSelection.shift();
+            game.playerSelection.shift();
+            console.log(game.playerSelection);
+        // } else if(game.playerSelection[0] != game.playerSelection[1]){
+            // document.querySelector('.gameCard').setAttribute('src', `./images/card10.png`);
+        }
+    }   
 }
+// Create Game Container
+// let gameContainer = document.createElement('div');
+// gameContainer.setAttribute('class', 'gameContainer');
+// document.body.appendChild(gameContainer);
 
 // Check Score Method
 // When player selects first card = get value and set to const
@@ -149,3 +188,4 @@ const handleClick = (event) => {
 game.getCards();
 game.shuffle();
 game.dealCards();
+game.selectCards();
