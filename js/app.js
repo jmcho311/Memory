@@ -51,7 +51,7 @@ document.body.appendChild(scoreContainer);
 // Create Player Score
 let playerScore = document.createElement('div');
 playerScore.setAttribute('class', 'playerScore');
-playerScore.innerHTML = "I made it to 0 places!";
+playerScore.innerHTML = "You made it to 0 places!";
 scoreContainer.appendChild(playerScore);
 
 // Game object
@@ -161,7 +161,7 @@ const handleClick = (event) => {
         if(game.playerSelection[0].getAttribute('value') == game.playerSelection[1].getAttribute('value')){
             game.playerScore++;
             // console.log(game.playerScore);
-            let newScoreInnerHTML = `I made it to ${game.playerScore} places!`;
+            let newScoreInnerHTML = `You made it to ${game.playerScore} places!`;
             playerScore.innerHTML = newScoreInnerHTML;
             game.playerSelection.shift();
             game.playerSelection.shift();

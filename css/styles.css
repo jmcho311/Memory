@@ -2,11 +2,11 @@
     background-image: url('../images/scaledbackground.jpg');
     align-content: center;
     text-align: center;
+    font-family: 'Lobster', cursive;
+    color: darkgoldenrod;
 }
 
 .header {
-    font-family: 'Lobster', cursive;
-    color: darkgoldenrod;
     font-size: 1.5em;
 }
 
@@ -18,6 +18,11 @@
     margin: 30px;
 }
 
+.timerContainer {
+    font-size: 1.75em;
+}
+
+
 div.container {
     display: grid;
     grid-template-columns: repeat(4, 2fr);
@@ -28,4 +33,8 @@ div.container {
 
 .cardBack {
     background-image: url('../images/card10.png');
+}
+
+.playerScore {
+    font-size: 1.75em;
 }
