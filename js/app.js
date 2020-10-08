@@ -37,30 +37,6 @@ playerScore.innerHTML = "Score: 0";
 scoreContainer.appendChild(playerScore);
 
 // Game object
-
-
-// const cardButton = document.createElement('button');
-// cardButton.setAttribute('class', 'cardButton');
-// scoreContainer.appendChild(cardButton);
-
-// const backCard = document.createElement('div');
-// backCard.setAttribute('class', 'backCard');
-// document.body.appendChild(backCard);
-
-// const backCardImg = document.createElement('img');
-// backCardImg.setAttribute('src', './images/card10.png');
-// backCard.appendChild(backCardImg);
-
-const handleClick = (event) => {
-    console.log('hello world');
-    // const cardSelect = document.querySelector('img').getAttribute('src');
-    // const cardSelect = document.getElementById('container');
-    // cardSelect.classList.toggle('backCard');
-    // cardSelect.toggle('src', './images/card10.png');
-    const value = event.target.getAttribute('value');
-    event.target.setAttribute('src', `./images/card${value}.png`);
-}
-
 let game = {
     playerScore: 0,
     deck: [],
@@ -71,6 +47,7 @@ let game = {
         // let tempDeck = [];
         for(let i=2; i<10; i++){
             const cardImg = document.createElement('img');
+            cardImg.setAttribute('class', 'gameCard')
             cardImg.setAttribute('src', `./images/card10.png`);
             cardImg.setAttribute('value', i);
             cardImg.value = i;
@@ -79,6 +56,7 @@ let game = {
         }
         for(let j=2; j<10; j++){
             const cardImg2 = document.createElement('img');
+            cardImg2.setAttribute('class', 'gameCard')
             cardImg2.setAttribute('src', `./images/card10.png`);
             cardImg2.setAttribute('value', j);
             cardImg2.value = j;
@@ -116,9 +94,54 @@ let game = {
         // console.log(this.deck);
     },
 
-// Select Cards Method 
-
 }
+
+// Select Cards Method 
+    // const cardButton = document.createElement('button');
+    // cardButton.setAttribute('class', 'cardButton');
+    // scoreContainer.appendChild(cardButton);
+
+    // const backCard = document.createElement('div');
+    // backCard.setAttribute('class', 'backCard');
+    // document.body.appendChild(backCard);
+
+    // const backCardImg = document.createElement('img');
+    // backCardImg.setAttribute('src', './images/card10.png');
+    // backCard.appendChild(backCardImg);
+
+const handleClick = (event) => {
+    // console.log('hello world');
+    // const cardSelect = document.querySelector('img').getAttribute('src');
+    // const cardSelect = document.getElementById('container');
+    // cardSelect.classList.toggle('backCard');
+    // cardSelect.toggle('src', './images/card10.png');
+    const value = event.target.getAttribute('value');
+    event.target.setAttribute('src', `./images/card${value}.png`);
+    // let selectOne = document.querySelector('.gameCard').getAttribute('value');
+}
+
+// Check Score Method
+// When player selects first card = get value and set to const
+// When player selects second card = get value and set to const
+// If first card value === second card value, 
+// then keep images facing up
+// this.playerScore++;
+// let newScoreInnerHTML = `Score: ${this.playerScore}`;
+// console.log(newScoreInnerHTML);
+// playerScore.innerHTML = newScoreInnerHTML;
+
+
+// When player selects first card = get value and set to const
+// When player selects second card = get value and set to const
+// If first card value !== second card value,
+// then change back to card10.png
+
+/*score: function() {
+    let card1 = 
+    // if()
+}*/
+
+
 
 game.getCards();
 game.shuffle();
