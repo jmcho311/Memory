@@ -11,6 +11,7 @@ const newGame = () => {
     game.shuffle();
     game.dealCards();
     game.selectCards();
+    setUpTimer(60);
     button.removeEventListener('click', newGame);
 }
 button.addEventListener('click', newGame);
@@ -23,7 +24,27 @@ let timer = document.createElement('div');
 timer.setAttribute('class', 'timer');
 timer.innerHTML = "Will you make it everywhere?";
 timerContainer.appendChild(timer);
+let timerCount, timerId;
 
+
+function setUpTimer(whateverTime) {
+    // setInterval(function, 1000(time))
+    timerCount = whateverTime;
+    timerId = setInterval(()=> {
+        timerCount--;
+        // what do we do each second?
+        if(timerCount===0) {
+            alert(`Let's do it again soon!`);
+            clearInterval(timerId);
+
+        }
+        const timerText = document.querySelector('.timer');
+        timerText.innerHTML = `Will you make it everywhere? ${timerCount} seconds left`;
+    }, 1000);
+        // get it to show up on the DOM
+        const timerText = document.querySelector('.timer');
+        timerText.innerHTML = `Will you make it everywhere? ${timerCount} seconds left`;
+}
 
 // Create container element
 let container = document.createElement('div');
@@ -166,14 +187,16 @@ const handleClick = (event) => {
             game.playerSelection.shift();
             game.playerSelection.shift();
             // console.log(game.playerSelection);
-        /*    if(game.playerScore === 2){
+            if(game.playerScore === 8){
+                alert('You made it!');
                 // remove all cards from the container
-                for(let i=0; i<16; i++){
-                    let myCards = document.querySelector('.gameCard').getElementById('id', i);
-                    myCards.remove();
-                }
-                button.addEventListener('click', newGame);
-            }  */
+                // let myCards = document.querySelectorAll('img');
+                // for(let i=0; i<16; i++){
+                    // myCards[i].remove();
+                // }
+                clearInterval(timerId);
+                // button.addEventListener('click', newGame);
+            }
 
         } else if(game.playerSelection[0].getAttribute('value') != game.playerSelection[1].getAttribute('value')){
             setTimeout(function(){
