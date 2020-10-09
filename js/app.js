@@ -15,7 +15,7 @@ const newGame = () => {
     game.shuffle();
     game.dealCards();
     game.selectCards();
-    setUpTimer(60);
+    setUpTimer(45);
     buttonStart.removeEventListener('click', newGame);
 }
 buttonStart.addEventListener('click', newGame);
