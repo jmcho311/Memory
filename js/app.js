@@ -53,7 +53,7 @@ function setUpTimer(whateverTime) {
     timerId = setInterval(()=> {
         timerCount--;
         if(timerCount===0) {
-            alert(`Let's do it again soon!`);
+            alert(`Come visit again soon!`);
             clearInterval(timerId);
         }
         const timerText = document.querySelector('.timer');
@@ -163,7 +163,7 @@ const handleClick = (event) => {
             // If playerScore matches all 8 pairs, alert pops up and
                 // stop timer and activate 'click' reload button
             if(game.playerScore === 8){
-                alert('You made it!');
+                alert('What a great trip!');
                 clearInterval(timerId);
                 buttonRefresh.addEventListener('click', reload);
             }
