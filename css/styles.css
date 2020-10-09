@@ -12,9 +12,17 @@
 
 .startButton {
     background-image: url('../images/dealButton.png');
-    width: 100px;
-    height: 72px;
-    border: 1px solid black;
+    border: 2px solid darkgoldenrod;
+    height: 75px;
+    width: 104px;
+    margin: 30px;
+}
+
+.refreshButton {
+    background-image: url('../images/refreshIMG.png');
+    border: 2px solid darkgoldenrod;
+    height: 75px;
+    width: 104px;
     margin: 30px;
 }
 

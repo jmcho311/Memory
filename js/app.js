@@ -1,10 +1,14 @@
 console.log('Sanity Check!');
 
 // Create Start Game Button
+let buttonContainer = document.createElement('div');
+buttonContainer.setAttribute('class', 'buttonContainer');
+document.body.appendChild(buttonContainer);
+
 let startButton = document.createElement('button');
 startButton.setAttribute('class', 'startButton');
-document.body.appendChild(startButton);
-const button = document.querySelector('button');
+buttonContainer.appendChild(startButton);
+const buttonStart = document.querySelector('.startButton');
 
 const newGame = () => {
     game.getCards();
@@ -12,9 +16,21 @@ const newGame = () => {
     game.dealCards();
     game.selectCards();
     setUpTimer(60);
-    button.removeEventListener('click', newGame);
+    buttonStart.removeEventListener('click', newGame);
 }
-button.addEventListener('click', newGame);
+buttonStart.addEventListener('click', newGame);
+
+
+let refreshButton = document.createElement('button');
+refreshButton.setAttribute('class', 'refreshButton');
+buttonContainer.appendChild(refreshButton);
+const buttonRefresh = document.querySelector('.refreshButton');
+
+const reload = () => {
+    window.location.reload();
+}
+buttonRefresh.addEventListener('click', reload);
+
 
 // Create timer Container and Element
 let timerContainer = document.createElement('div');
@@ -36,9 +52,9 @@ function setUpTimer(whateverTime) {
         if(timerCount===0) {
             alert(`Let's do it again soon!`);
             clearInterval(timerId);
-            setTimeout(function(){
+        /*    setTimeout(function(){
                 window.location.reload();
-            }, 3000);
+            }, 3000);  */
         }
         const timerText = document.querySelector('.timer');
         timerText.innerHTML = `Will you make it everywhere? ${timerCount} seconds left`;
@@ -197,10 +213,11 @@ const handleClick = (event) => {
                     // myCards[i].remove();
                 // }
                 clearInterval(timerId);
-                setTimeout(function(){
-                    window.location.reload();
-                }, 5000);
+                // setTimeout(function(){
+                    // window.location.reload();
+                // }, 5000);
                 // button.addEventListener('click', newGame);
+                buttonRefresh.addEventListener('click', reload);
             }
 
         } else if(game.playerSelection[0].getAttribute('value') != game.playerSelection[1].getAttribute('value')){
