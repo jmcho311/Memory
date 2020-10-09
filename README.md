@@ -53,6 +53,23 @@ For the planning of this game, I researched how many different cities were repre
 
 ### Credits
 
+Special shoutout to all the instructors and TA's but especially these cohort-mates (in alphabetical order) that really helped push me to get through this project:
+- Ashley Nguyen
+- Brock Molmen
+- Casey Jenkins
+- Derek Foster
+- Edwin/Endia Williams
+- Jamie Cabrigas
+- Lauren Nguyen
+- Liana Sepulveda
+- Lucy Franco
+- Mario Carbonell
+- Tess Bishop
+
+Also, regularly referenced these sites:
+- https://www.w3schools.com/js/
+- https://stackoverflow.com/questions 
+- https://css-tricks.com/snippets/css/complete-guide-grid/
 
 
 ### Future Features
