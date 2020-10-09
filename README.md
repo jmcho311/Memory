@@ -1,4 +1,4 @@
-# "All The Places We'll Go" Memory Game
+# "All The Places We'll Go"
 
 ### About
 
@@ -27,7 +27,7 @@ For the planning of this game, I researched how many different cities were repre
 - "Will you make it everywhere?" (timer question) 
 - "You made it to _ places!" (score phrase)
 
-![1st Page](1stPage.png)
+![1st Page](./images/1stPage.png)
 
 2nd Page functions:
 - gets card images
@@ -38,7 +38,7 @@ For the planning of this game, I researched how many different cities were repre
 - alerts with timeout and perfect score
 - refresh game
 
-![2nd Page](2ndPage.png)
+![2nd Page](./images/2ndPage.png)
 
 ### Technologies
 
