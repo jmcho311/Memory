@@ -42,6 +42,13 @@ For the planning of this game, I researched how many different cities were repre
 
 ### Technologies
 
+![start Game](./images/startGame.png)
+
+![timer](./images/timer.png)
+
+![get Cards](./images/getCards.png)
+
+![select Cards](./images/selectCards.png)
 
 
 ### Credits

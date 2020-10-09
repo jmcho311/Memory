@@ -45,7 +45,7 @@ let timer = document.createElement('div');
 timer.setAttribute('class', 'timer');
 timer.innerHTML = "Will you make it everywhere?";
 timerContainer.appendChild(timer);
-
+ 
 // Create timer function
 let timerCount, timerId;
 function setUpTimer(whateverTime) {
