@@ -1,13 +1,21 @@
 * {
-    background-image: url('../images/scaledbackground.jpg');
+    /* background-image: url('../images/scaledbackground.jpg'); */
+    background-color: #EBD9BD;
     align-content: center;
     text-align: center;
     font-family: 'Lobster', cursive;
     color: darkgoldenrod;
 }
 
+
+
 .header {
     font-size: 1.5em;
+    margin: 15px;
+}
+
+.buttonContainer {
+    height: 100px;
 }
 
 .startButton {
@@ -28,8 +36,8 @@
 
 .timerContainer {
     font-size: 1.75em;
+    margin: 20px;
 }
-
 
 div.container {
     display: grid;
