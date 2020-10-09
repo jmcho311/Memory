@@ -36,7 +36,9 @@ function setUpTimer(whateverTime) {
         if(timerCount===0) {
             alert(`Let's do it again soon!`);
             clearInterval(timerId);
-
+            setTimeout(function(){
+                window.location.reload();
+            }, 3000);
         }
         const timerText = document.querySelector('.timer');
         timerText.innerHTML = `Will you make it everywhere? ${timerCount} seconds left`;
@@ -195,6 +197,9 @@ const handleClick = (event) => {
                     // myCards[i].remove();
                 // }
                 clearInterval(timerId);
+                setTimeout(function(){
+                    window.location.reload();
+                }, 5000);
                 // button.addEventListener('click', newGame);
             }
 
